@@ -1,0 +1,29 @@
+# =+= SecureIdentity official configuration =+=
+# Placeholders:
+# %player% - player name
+
+prefix: 'SecureIdentity -> '
+
+
+2FA_Password_Security:
+  Passwords:
+    hash algorithm: 'SHA-256'
+    hash layers: 5
+    dynamic_salt:
+      size:
+        max: 60
+        min: 30
+  Static salt:
+    hash algorithm: 'SHA-256'
+
+
+Anti_Alts:
+  On-login:
+    Max accounts per ip: 3
+    Block-login reason: "You have too many accounts on one ip!"
+    # Leave empty for no command execution
+    Command: 'ban %player% Having more then 3 accounts on same ip is not allowed'
+
+  Data Security:
+    Hash player ip: true
+    Hash algorithm: 'SHA-256'
